@@ -1,10 +1,10 @@
-import {useState, useMemo} from 'react';
+import * as React from 'react';
 
 export default function usePromise(promise) {
-  const [status, setStatus] = useState('pending');
-  const [result, setResult] = useState();
+  const [status, setStatus] = React.useState('pending');
+  const [result, setResult] = React.useState();
 
-  let suspender = useMemo(() => promise.then(
+  let suspender = React.useMemo(() => promise.then(
     r => {
       setStatus("success");
       setResult(r);
